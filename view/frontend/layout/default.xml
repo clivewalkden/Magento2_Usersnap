@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+  ~ Clive Walkden
+  ~
+  ~ NOTICE OF LICENSE
+  ~
+  ~ This source file is subject to the Open Software License (OSL 3.0)
+  ~ that is bundled with this package in the file LICENSE.
+  ~ It is also available through the world-wide-web at this URL:
+  ~ http://opensource.org/licenses/osl-3.0.php
+  ~
+  ~ @category    Clive Walkden
+  ~ @package     CliveWalkden_Usersnap
+  ~ @copyright   Copyright (c) 2017 Clive Walkden (https://clivewalkden.co.uk)
+  ~ @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+  ~
+  -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="before.body.end">
+            <block class="CliveWalkden\Usersnap\Block\Display" name="usersnap.snap.js" as="usersnap_snap_js" template="CliveWalkden_Usersnap::snap/widget.phtml" after="-" cacheable="false" />
+        </referenceContainer>
+    </body>
+</page>
