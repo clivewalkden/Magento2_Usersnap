@@ -18,21 +18,17 @@
 
 // @codingStandardsIgnoreFile
 /* @var $this \CliveWalkden\Usersnap\Block\Display */
-if ($this->getEnabled()) :
-    ?>
-    <!-- BEGIN USERSNAP CODE {literal} -->
-    <script type="text/javascript">
-        (function() {
-            var s = document.createElement("script");
-            s.type = "text/javascript";
-            s.async = true;
-            s.src = '//api.usersnap.com/load/'+
-                '<?php echo $this->getKey(); ?>';
-            var x = document.getElementsByTagName('script')[0];
-            x.parentNode.insertBefore(s, x);
-        })();
-    </script>
-    <!-- {/literal} END USERSNAP CODE -->
-    <?php
-endif;
 ?>
+<!-- BEGIN USERSNAP CODE {literal} -->
+<script type="text/javascript">
+    (function() {
+        var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = '//api.usersnap.com/load/'+
+            '<?php echo $block->getWidgetId(); ?>';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+    })();
+</script>
+<!-- {/literal} END USERSNAP CODE -->

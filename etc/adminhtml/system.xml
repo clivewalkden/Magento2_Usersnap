@@ -17,18 +17,19 @@
   -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <section id="clivewalkden_usersnap" translate="label" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
+        <tab id="clivewalkden" translate="label" sortOrder="999999" class="clivewalkden-tab">
+            <label>Clive Walkden Extensions</label>
+        </tab>
+        <section id="clivewalkden_usersnap" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
             <class>separator-top</class>
-            <label><![CDATA[<a href="http://bit.ly/2gmEB0m" target="_blank" title="Go to Usersnap Website">Sign Up to Usersnap to get an account</a>]]></label>
-            <tab>customer</tab>
+            <label><![CDATA[Usersnap]]></label>
+            <tab>clivewalkden</tab>
             <resource>CliveWalkden_Usersnap::config_usersnap</resource>
+            <group id="hint" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <frontend_model>CliveWalkden\Usersnap\Block\System\Config\Form\Fieldset\Hint</frontend_model>
+            </group>
             <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General</label>
-
-                <field id="version" translate="label" type="label" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Version</label>
-                    <frontend_model>CliveWalkden\Usersnap\Block\System\Config\Form\Field\Version</frontend_model>
-                </field>
 
                 <field id="enabled" type="select" translate="label" sortOrder="10" showInDefault="1" showInStore="1" showInWebsite="1">
                     <label>Enabled</label>
@@ -37,7 +38,7 @@
 
                 <field id="widget_id" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInStore="1" showInWebsite="1">
                     <label>Widget ID</label>
-                    <comment>Enter the Widget ID from your script.</comment>
+                    <comment>Enter the Widget ID from your script (including the trailing .js).</comment>
                 </field>
             </group>
         </section>

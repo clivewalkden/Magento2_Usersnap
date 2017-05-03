@@ -18,7 +18,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="before.body.end">
-            <block class="CliveWalkden\Usersnap\Block\Display" name="usersnap.snap.js" as="usersnap_snap_js" template="CliveWalkden_Usersnap::snap/widget.phtml" after="-" cacheable="false" />
+            <block class="CliveWalkden\Usersnap\Block\Display" name="usersnap_snap_js" as="usersnap_snap_js" template="CliveWalkden_Usersnap::snap/widget.phtml" />
         </referenceContainer>
     </body>
 </page>

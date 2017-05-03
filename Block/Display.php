@@ -19,6 +19,7 @@
 namespace CliveWalkden\Usersnap\Block;
 
 use Magento\Framework\View\Element\Template;
+use Magento\Framework\View\Element\Template\Context;
 use CliveWalkden\Usersnap\Helper\Data;
 
 class Display extends Template
@@ -26,27 +27,35 @@ class Display extends Template
     /**
      * @var \CliveWalkden\Usersnap\Helper\Data
      */
-    protected $snapHelper;
+    protected $_snapHelper;
 
-    public function __construct(Data $snapHelper)
+    public function __construct(Context $context, Data $snapHelper, array $data = [])
     {
-        $this->snapHelper = $snapHelper;
+        $this->_snapHelper = $snapHelper;
+        parent::__construct($context, $data);
     }
 
     /**
-     * Generate the JivoChat output
+     * Get the Widget ID
+     *
+     * @return mixed
+     */
+    public function getWidgetId()
+    {
+        return $this->_snapHelper->getWidgetId();
+    }
+
+    /**
+     * Generate the Usersnap output
      *
      * @return string
      */
     public function _toHtml()
     {
-        if ($this->snapHelper->getEnabled()) {
-            $this
-                ->setTemplate('snap/widget.phtml')
-                ->setKey($this->snapHelper->getWidgetId()
-                ->setEnabled($this->snapHelper->getEnabled()));
-            return parent::_toHtml();
+        if (!$this->_snapHelper->getEnabled()) {
+            return '';
         }
-        return '';
+
+        return parent::_toHtml();
     }
 }
