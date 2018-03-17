@@ -11,17 +11,17 @@
  *
  * @category    Clive Walkden
  * @package     CliveWalkden_Usersnap
- * @copyright   Copyright (c) 2017 Clive Walkden (https://clivewalkden.co.uk)
+ * @copyright   Copyright (c) 2018 Clive Walkden (https://clivewalkden.co.uk)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  *
  */
 
 namespace CliveWalkden\Usersnap\Block\System\Config\Form\Field;
 
+use CliveWalkden\Usersnap\Helper\Data;
 use Magento\Backend\Block\Template\Context;
 use Magento\Config\Block\System\Config\Form\Field;
 use Magento\Framework\Data\Form\Element\AbstractElement;
-use CliveWalkden\Usersnap\Helper\Data;
 
 class Version extends Field
 {
@@ -34,7 +34,7 @@ class Version extends Field
 
     /**
      * @param   \Magento\Backend\Block\Template\Context $context
-     * @param   \CliveWalkden\Usersnap\Helper\Data   $helper
+     * @param   \CliveWalkden\Usersnap\Helper\Data $helper
      */
     public function __construct(
         Context $context,
@@ -51,8 +51,8 @@ class Version extends Field
     protected function _getElementHtml(AbstractElement $element)
     {
         $extensionVersion = $this->_helper->getExtensionVersion();
-        $extensionTitle   = 'Clive Walkden - Usersnap';
-        $versionLabel     = sprintf(
+        $extensionTitle = 'Clive Walkden - Usersnap';
+        $versionLabel = sprintf(
             '<a href="%s" title="%s" target="_blank">%s</a>',
             self::EXTENSION_URL,
             $extensionTitle,

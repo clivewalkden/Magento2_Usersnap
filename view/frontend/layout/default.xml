@@ -11,14 +11,16 @@
   ~
   ~ @category    Clive Walkden
   ~ @package     CliveWalkden_Usersnap
-  ~ @copyright   Copyright (c) 2017 Clive Walkden (https://clivewalkden.co.uk)
+  ~ @copyright   Copyright (c) 2018 Clive Walkden (https://clivewalkden.co.uk)
   ~ @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
   ~
   -->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="before.body.end">
-            <block class="CliveWalkden\Usersnap\Block\Display" name="usersnap_snap_js" as="usersnap_snap_js" template="CliveWalkden_Usersnap::snap/widget.phtml" />
+            <block class="CliveWalkden\Usersnap\Block\Display" name="usersnap_snap_js" as="usersnap_snap_js"
+                   template="CliveWalkden_Usersnap::snap/widget.phtml"/>
         </referenceContainer>
     </body>
 </page>

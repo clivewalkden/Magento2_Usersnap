@@ -11,16 +11,16 @@
  *
  * @category    Clive Walkden
  * @package     CliveWalkden_Usersnap
- * @copyright   Copyright (c) 2017 Clive Walkden (https://clivewalkden.co.uk)
+ * @copyright   Copyright (c) 2018 Clive Walkden (https://clivewalkden.co.uk)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  *
  */
 
 namespace CliveWalkden\Usersnap\Block;
 
+use CliveWalkden\Usersnap\Helper\Data;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
-use CliveWalkden\Usersnap\Helper\Data;
 
 class Display extends Template
 {

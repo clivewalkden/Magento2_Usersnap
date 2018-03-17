@@ -11,7 +11,7 @@
  *
  * @category    Clive Walkden
  * @package     CliveWalkden_Usersnap
- * @copyright   Copyright (c) 2017 Clive Walkden (https://clivewalkden.co.uk)
+ * @copyright   Copyright (c) 2018 Clive Walkden (https://clivewalkden.co.uk)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  *
  */
@@ -19,8 +19,14 @@
 namespace CliveWalkden\Usersnap\Block\System\Config\Form\Fieldset;
 
 use CliveWalkden\Usersnap\Helper\Data;
+use Magento\Backend\Block\Template;
+use Magento\Backend\Block\Template\Context;
+use Magento\Framework\App\ProductMetadataInterface;
+use Magento\Framework\Data\Form\Element\AbstractElement;
+use Magento\Framework\Data\Form\Element\Renderer\RendererInterface;
+use Magento\Framework\Module\ModuleList\Loader;
 
-class Hint extends \Magento\Backend\Block\Template implements \Magento\Framework\Data\Form\Element\Renderer\RendererInterface
+class Hint extends Template implements RendererInterface
 {
     /**
      * @var \CliveWalkden\Usersnap\Helper\Data
@@ -39,6 +45,7 @@ class Hint extends \Magento\Backend\Block\Template implements \Magento\Framework
      * @var \Magento\Framework\Module\ModuleList\Loader
      */
     protected $_loader;
+
     /**
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Magento\Framework\App\ProductMetadataInterface $productMetaData
@@ -46,9 +53,9 @@ class Hint extends \Magento\Backend\Block\Template implements \Magento\Framework
      * @param array $data
      */
     public function __construct(
-        \Magento\Backend\Block\Template\Context $context,
-        \Magento\Framework\App\ProductMetadataInterface $productMetaData,
-        \Magento\Framework\Module\ModuleList\Loader $loader,
+        Context $context,
+        ProductMetadataInterface $productMetaData,
+        Loader $loader,
         Data $helper,
         array $data = []
     ) {
@@ -58,14 +65,16 @@ class Hint extends \Magento\Backend\Block\Template implements \Magento\Framework
         $this->_loader = $loader;
         $this->_helper = $helper;
     }
+
     /**
      * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
      * @return mixed
      */
-    public function render(\Magento\Framework\Data\Form\Element\AbstractElement $element)
+    public function render(AbstractElement $element)
     {
         return $this->toHtml();
     }
+
     public function getPxParams()
     {
         $modules = $this->_loader->load();
@@ -85,6 +94,7 @@ class Hint extends \Magento\Backend\Block\Template implements \Magento\Framework
         $hash = md5($extension . '_' . $mage . '_' . $extension);
         return "ext=$extension&mage={$mage}&ctrl={$hash}";
     }
+
     public function getVersion()
     {
         return $this->_helper->getExtensionVersion();

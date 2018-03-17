@@ -11,22 +11,22 @@
  *
  * @category    Clive Walkden
  * @package     CliveWalkden_Usersnap
- * @copyright   Copyright (c) 2017 Clive Walkden (https://clivewalkden.co.uk)
+ * @copyright   Copyright (c) 2018 Clive Walkden (https://clivewalkden.co.uk)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  *
  */
 
 namespace CliveWalkden\Usersnap\Helper;
 
-use Magento\Framework\App\Helper\Context;
 use Magento\Framework\App\Helper\AbstractHelper;
+use Magento\Framework\App\Helper\Context;
 use Magento\Framework\Module\ModuleListInterface;
 use Magento\Store\Model\ScopeInterface;
 
 class Data extends AbstractHelper
 {
-    const CFG_USERSNAP_ENABLED          = 'clivewalkden_usersnap/general/enabled';
-    const CFG_USERSNAP_WIDGET_ID        = 'clivewalkden_usersnap/general/widget_id';
+    const CFG_USERSNAP_ENABLED = 'clivewalkden_usersnap/general/enabled';
+    const CFG_USERSNAP_WIDGET_ID = 'clivewalkden_usersnap/general/widget_id';
 
     /**
      * @var ModuleListInterface
@@ -36,8 +36,7 @@ class Data extends AbstractHelper
     public function __construct(
         Context $context,
         ModuleListInterface $moduleList
-    )
-    {
+    ) {
         $this->_moduleList = $moduleList;
 
         parent::__construct($context);
