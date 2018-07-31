@@ -3,7 +3,6 @@
 [![License](https://poser.pugx.org/clivewalkden/magento2-usersnap/license)](./LICENSE)
 [![Total Downloads](https://poser.pugx.org/clivewalkden/magento2-usersnap/downloads)](https://packagist.org/packages/clivewalkden/magento2-usersnap)
 [![Latest Stable Version](https://poser.pugx.org/clivewalkden/magento2-usersnap/v/stable)](https://packagist.org/packages/clivewalkden/magento2-usersnap)
-[![Latest Unstable Version](https://poser.pugx.org/clivewalkden/magento2-usersnap/v/unstable)](https://packagist.org/packages/clivewalkden/magento2-usersnap)
 
 ## Installation
 **Using Composer:**
