@@ -29,15 +29,15 @@ class Data extends AbstractHelper
     const CFG_USERSNAP_WIDGET_ID = 'clivewalkden_usersnap/general/widget_id';
 
     /**
-     * @var ModuleListInterface
+     * @var \Magento\Framework\Module\ModuleListInterface
      */
-    protected $_moduleList;
+    protected $moduleList;
 
     public function __construct(
         Context $context,
         ModuleListInterface $moduleList
     ) {
-        $this->_moduleList = $moduleList;
+        $this->moduleList = $moduleList;
 
         parent::__construct($context);
     }
@@ -64,7 +64,7 @@ class Data extends AbstractHelper
     public function getExtensionVersion()
     {
         $moduleCode = 'CliveWalkden_Usersnap';
-        $moduleInfo = $this->_moduleList->getOne($moduleCode);
+        $moduleInfo = $this->moduleList->getOne($moduleCode);
         return $moduleInfo['setup_version'];
     }
 }

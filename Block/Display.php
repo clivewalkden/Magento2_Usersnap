@@ -27,11 +27,11 @@ class Display extends Template
     /**
      * @var \CliveWalkden\Usersnap\Helper\Data
      */
-    protected $_snapHelper;
+    protected $snapHelper;
 
     public function __construct(Context $context, Data $snapHelper, array $data = [])
     {
-        $this->_snapHelper = $snapHelper;
+        $this->snapHelper = $snapHelper;
         parent::__construct($context, $data);
     }
 
@@ -42,7 +42,7 @@ class Display extends Template
      */
     public function getWidgetId()
     {
-        return $this->_snapHelper->getWidgetId();
+        return $this->snapHelper->getWidgetId();
     }
 
     /**
@@ -52,7 +52,7 @@ class Display extends Template
      */
     public function _toHtml()
     {
-        if (!$this->_snapHelper->getEnabled()) {
+        if (!$this->snapHelper->getEnabled()) {
             return '';
         }
 
