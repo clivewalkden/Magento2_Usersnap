@@ -26,6 +26,7 @@ use Magento\Store\Model\ScopeInterface;
 class Data extends AbstractHelper
 {
     const CFG_USERSNAP_ENABLED = 'clivewalkden_usersnap/general/enabled';
+    const CFG_USERSNAP_AREA = 'clivewalkden_usersnap/general/area';
     const CFG_USERSNAP_WIDGET_ID = 'clivewalkden_usersnap/general/widget_id';
 
     /**
@@ -48,6 +49,11 @@ class Data extends AbstractHelper
     public function getEnabled()
     {
         return $this->scopeConfig->isSetFlag(self::CFG_USERSNAP_ENABLED, ScopeInterface::SCOPE_STORE);
+    }
+
+    public function getArea()
+    {
+        return $this->scopeConfig->getValue(self::CFG_USERSNAP_AREA, ScopeInterface::SCOPE_STORE);
     }
 
     /**

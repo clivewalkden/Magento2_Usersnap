@@ -40,6 +40,16 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
 
+                <field id="area" translate="label comment" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Area</label>
+                    <source_model>CliveWalkden\Usersnap\Model\Config\Source\Area</source_model>
+                    <comment>Which areas should the widget appear</comment>
+                    <depends>
+                        <field id="enabled" separator=",">1,2</field>
+                    </depends>
+                </field>
+
                 <field id="widget_id" translate="label comment" type="text" sortOrder="30" showInDefault="1"
                        showInStore="1" showInWebsite="1">
                     <label>Widget ID</label>
