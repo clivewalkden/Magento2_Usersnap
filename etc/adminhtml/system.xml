@@ -57,7 +57,7 @@
                     <label>Display on Backend?</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-
+                <!--
                 <field id="environment" translate="label tooltip" type="text" sortOrder="60" showInDefault="1"
                        showInStore="1" showInWebsite="1">
                     <label>Environment</label>
@@ -66,6 +66,7 @@
                         <field id="enabled">1</field>
                     </depends>
                 </field>
+                -->
             </group>
         </section>
     </system>

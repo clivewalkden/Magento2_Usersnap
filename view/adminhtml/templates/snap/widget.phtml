@@ -20,24 +20,8 @@
 /* @var $block \CliveWalkden\Usersnap\Block\Backend */
 ?>
 <!-- BEGIN USERSNAP CODE {literal} -->
-<script>
-    window.onUsersnapCXLoad = function(api) {
-        api.init();
-        window.Usersnap = api;
-    }
-    var script = document.createElement('script');
-    script.defer = 1;
-    script.src = 'https://widget.usersnap.com/global/load/<?php echo $block->getWidgetId(); ?>?onload=onUsersnapCXLoad';
-    document.getElementsByTagName('head')[0].appendChild(script);
-
-    <?php
-    if ($block->getEnvironment()):
-        ?>
-    window.Usersnap.on('open', (event) => {
-        event.api.setValue('custom', {environment: <?php echo $block->getEnvironment();?>});
-    })
-        <?php
-    endif;
-    ?>
+<script type="text/javascript">
+    (function() { var s = document.createElement("script"); s.type = "text/javascript"; s.async = true; s.src = '//api.usersnap.com/load/<?= $block->getWidgetId(); ?>>.js';
+        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); })();
 </script>
 <!-- {/literal} END USERSNAP CODE -->
