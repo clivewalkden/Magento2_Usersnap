@@ -27,6 +27,8 @@ class Data extends AbstractHelper
 {
     const CFG_USERSNAP_ENABLED = 'clivewalkden_usersnap/general/enabled';
     const CFG_USERSNAP_WIDGET_ID = 'clivewalkden_usersnap/general/widget_id';
+    const CFG_USERSNAP_FRONTEND_ENABLED = 'clivewalkden_usersnap/general/frontend_enabled';
+    const CFG_USERSNAP_BACKEND_ENABLED = 'clivewalkden_usersnap/general/backend_enabled';
     const CFG_USERSNAP_ENVIRONMENT = 'clivewalkden_usersnap/general/environment';
 
     /**
@@ -57,6 +59,20 @@ class Data extends AbstractHelper
     public function getWidgetId()
     {
         return $this->scopeConfig->getValue(self::CFG_USERSNAP_WIDGET_ID, ScopeInterface::SCOPE_STORE);
+    }
+
+    /**
+     * @return bool
+     */
+    public function getFrontendEnabled() {
+        return $this->scopeConfig->isSetFlag(self::CFG_USERSNAP_FRONTEND_ENABLED, ScopeInterface::SCOPE_STORE);
+    }
+
+    /**
+     * @return bool
+     */
+    public function getBackendEnabled() {
+        return $this->scopeConfig->isSetFlag(self::CFG_USERSNAP_BACKEND_ENABLED, ScopeInterface::SCOPE_STORE);
     }
 
     /**

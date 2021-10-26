@@ -14,10 +14,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- Frontend and Backend options to turn the widget on / off in those areas 
+
 ### Updated
 - Updated widget code to the latest version
 - Copyright updated to remove the year
 - Added optional environment option to pass to the feedback ticket
+- Language files updated
 
 
 ## [v1.0.1]

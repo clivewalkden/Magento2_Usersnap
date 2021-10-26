@@ -22,6 +22,8 @@
             <general>
                 <enabled>0</enabled>
                 <widget_id></widget_id>
+                <frontend_enabled>0</frontend_enabled>
+                <backend_enabled>1</backend_enabled>
                 <environment></environment>
             </general>
         </clivewalkden_usersnap>

@@ -48,7 +48,17 @@
                     </comment>
                 </field>
 
-                <field id="environment" translate="label tooltip" type="text" sortOrder="40" showInDefault="1"
+                <field id="frontend_enabled" translate="label" type="select" sortOrder="40" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Display on Frontend?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="backend_enabled" translate="label" type="select" sortOrder="40" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Display on Backend?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="environment" translate="label tooltip" type="text" sortOrder="60" showInDefault="1"
                        showInStore="1" showInWebsite="1">
                     <label>Environment</label>
                     <tooltip><![CDATA[Set the environment to be saved with the feedback]]></tooltip>
