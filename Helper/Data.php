@@ -58,7 +58,17 @@ class Data extends AbstractHelper
      */
     public function getWidgetId()
     {
-        return $this->scopeConfig->getValue(self::CFG_USERSNAP_WIDGET_ID, ScopeInterface::SCOPE_STORE);
+        return $this->validateWidgetID();
+    }
+
+    protected function validateWidgetID() {
+        $widgetId = $this->scopeConfig->getValue(self::CFG_USERSNAP_WIDGET_ID, ScopeInterface::SCOPE_STORE);
+
+        if (substr_compare($widgetId, '.js', -3, 3, true) === 0) {
+            return $widgetId;
+        } else {
+            return $widgetId . '.js';
+        }
     }
 
     /**
