@@ -22,7 +22,7 @@
             <block class="CliveWalkden\Usersnap\Block\Backend"
                    name="usersnap_snap_js"
                    as="usersnap_snap_js"
-                   template="CliveWalkden_Usersnap::js_widget.phtml"/>
+                   template="CliveWalkden_Usersnap::snap/widget.phtml"/>
         </referenceContainer>
     </body>
 </page>
