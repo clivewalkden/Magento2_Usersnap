@@ -1,2 +1,12 @@
-'Email us', 'Email us'
-' by', ' by'
+"Usersnap v","Usersnap v"
+" by"," by"
+"CW Extensions","CW Extensions"
+Usersnap,Usersnap
+General,General
+Enabled,Enabled
+"Widget ID","Widget ID"
+"Enter the Widget ID from your script (including the trailing .js).","Enter the Widget ID from your script (including the trailing .js)."
+"Display on Frontend?","Display on Frontend?"
+"Display on Backend?","Display on Backend?"
+Environment,Environment
+"Set the environment to be saved with the feedback","Set the environment to be saved with the feedback"

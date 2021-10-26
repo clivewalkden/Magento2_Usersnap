@@ -7,6 +7,13 @@
 ## Installation
 **Using Composer:**
 1. You will need to have an active [Usersnap account](https://www.usersnap.com) to setup the plugin.
-1. Install using composer `composer require clivewalkden/magento2-usersnap`
-1. Log into the admin and enable the plugin and add the widget id
-1. Clear your Magento cache and you're done
+2. Install using composer `composer require clivewalkden/magento2-usersnap`
+3. Log into the admin and enable the plugin and add the widget id
+4. Clear your Magento cache and you're done
+
+
+## Todo
+- Add custom meta to the ticket add pass through, handle the logic in the block
+- Add ability to show in admin
+- Add IP block via admin so it can be used on live
+- Pass admin data automatically from the logged in user

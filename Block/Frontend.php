@@ -16,12 +16,16 @@
  *
  */
 
-// @codingStandardsIgnoreFile
-/* @var $block \CliveWalkden\Usersnap\Block\Frontend */
-?>
-<!-- BEGIN USERSNAP CODE {literal} -->
-<script type="text/javascript">
-    (function() { var s = document.createElement("script"); s.type = "text/javascript"; s.async = true; s.src = '//api.usersnap.com/load/<?= $block->getWidgetId(); ?>';
-        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); })();
-</script>
-<!-- {/literal} END USERSNAP CODE -->
+namespace CliveWalkden\Usersnap\Block;
+
+class Frontend extends Display
+{
+    public function _toHtml()
+    {
+        if ($this->snapHelper->getEnabled() && $this->snapHelper->getFrontendEnabled()) {
+            return parent::_toHtml();
+        }
+
+        return '';
+    }
+}

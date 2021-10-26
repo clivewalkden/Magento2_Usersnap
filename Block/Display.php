@@ -1,18 +1,18 @@
 <?php
-/**
+/*
  * Clive Walkden
  *
- * NOTICE OF LICENSE
+ *  NOTICE OF LICENSE
  *
- * This source file is subject to the Open Software License (OSL 3.0)
- * that is bundled with this package in the file LICENSE.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/osl-3.0.php
+ *  This source file is subject to the Open Software License (OSL 3.0)
+ *  that is bundled with this package in the file LICENSE.
+ *  It is also available through the world-wide-web at this URL:
+ *  http://opensource.org/licenses/osl-3.0.php
  *
- * @category    Clive Walkden
- * @package     CliveWalkden_Usersnap
- * @copyright   Copyright (c) 2018 Clive Walkden (https://clivewalkden.co.uk)
- * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ *  @category    Clive Walkden
+ *  @package     CliveWalkden_Usersnap
+ *  @copyright   Copyright (c) Clive Walkden (https://clivewalkden.co.uk)
+ *  @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  *
  */
 
@@ -27,11 +27,11 @@ class Display extends Template
     /**
      * @var \CliveWalkden\Usersnap\Helper\Data
      */
-    protected $_snapHelper;
+    protected $snapHelper;
 
     public function __construct(Context $context, Data $snapHelper, array $data = [])
     {
-        $this->_snapHelper = $snapHelper;
+        $this->snapHelper = $snapHelper;
         parent::__construct($context, $data);
     }
 
@@ -42,7 +42,17 @@ class Display extends Template
      */
     public function getWidgetId()
     {
-        return $this->_snapHelper->getWidgetId();
+        return $this->snapHelper->getWidgetId();
+    }
+
+    /**
+     * Get the Widget Environment
+     *
+     * @return mixed
+     */
+    public function getEnvironment()
+    {
+        return $this->snapHelper->getEnvironment();
     }
 
     /**
@@ -52,7 +62,7 @@ class Display extends Template
      */
     public function _toHtml()
     {
-        if (!$this->_snapHelper->getEnabled()) {
+        if (!$this->snapHelper->getEnabled()) {
             return '';
         }
 

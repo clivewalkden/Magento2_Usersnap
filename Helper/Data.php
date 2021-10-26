@@ -1,18 +1,18 @@
 <?php
-/**
+/*
  * Clive Walkden
  *
- * NOTICE OF LICENSE
+ *  NOTICE OF LICENSE
  *
- * This source file is subject to the Open Software License (OSL 3.0)
- * that is bundled with this package in the file LICENSE.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/osl-3.0.php
+ *  This source file is subject to the Open Software License (OSL 3.0)
+ *  that is bundled with this package in the file LICENSE.
+ *  It is also available through the world-wide-web at this URL:
+ *  http://opensource.org/licenses/osl-3.0.php
  *
- * @category    Clive Walkden
- * @package     CliveWalkden_Usersnap
- * @copyright   Copyright (c) 2018 Clive Walkden (https://clivewalkden.co.uk)
- * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ *  @category    Clive Walkden
+ *  @package     CliveWalkden_Usersnap
+ *  @copyright   Copyright (c) Clive Walkden (https://clivewalkden.co.uk)
+ *  @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  *
  */
 
@@ -27,17 +27,20 @@ class Data extends AbstractHelper
 {
     const CFG_USERSNAP_ENABLED = 'clivewalkden_usersnap/general/enabled';
     const CFG_USERSNAP_WIDGET_ID = 'clivewalkden_usersnap/general/widget_id';
+    const CFG_USERSNAP_FRONTEND_ENABLED = 'clivewalkden_usersnap/general/frontend_enabled';
+    const CFG_USERSNAP_BACKEND_ENABLED = 'clivewalkden_usersnap/general/backend_enabled';
+    const CFG_USERSNAP_ENVIRONMENT = 'clivewalkden_usersnap/general/environment';
 
     /**
-     * @var ModuleListInterface
+     * @var \Magento\Framework\Module\ModuleListInterface
      */
-    protected $_moduleList;
+    protected $moduleList;
 
     public function __construct(
         Context $context,
         ModuleListInterface $moduleList
     ) {
-        $this->_moduleList = $moduleList;
+        $this->moduleList = $moduleList;
 
         parent::__construct($context);
     }
@@ -59,12 +62,34 @@ class Data extends AbstractHelper
     }
 
     /**
+     * @return bool
+     */
+    public function getFrontendEnabled() {
+        return $this->scopeConfig->isSetFlag(self::CFG_USERSNAP_FRONTEND_ENABLED, ScopeInterface::SCOPE_STORE);
+    }
+
+    /**
+     * @return bool
+     */
+    public function getBackendEnabled() {
+        return $this->scopeConfig->isSetFlag(self::CFG_USERSNAP_BACKEND_ENABLED, ScopeInterface::SCOPE_STORE);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEnvironment()
+    {
+        return $this->scopeConfig->getValue(self::CFG_USERSNAP_ENVIRONMENT, ScopeInterface::SCOPE_STORE);
+    }
+
+    /**
      * @return mixed
      */
     public function getExtensionVersion()
     {
         $moduleCode = 'CliveWalkden_Usersnap';
-        $moduleInfo = $this->_moduleList->getOne($moduleCode);
+        $moduleInfo = $this->moduleList->getOne($moduleCode);
         return $moduleInfo['setup_version'];
     }
 }
