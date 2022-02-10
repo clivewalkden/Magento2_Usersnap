@@ -16,6 +16,8 @@
  *
  */
 
+declare(strict_types=1);
+
 namespace CliveWalkden\Usersnap\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
@@ -30,6 +32,8 @@ class Data extends AbstractHelper
     const CFG_USERSNAP_FRONTEND_ENABLED = 'clivewalkden_usersnap/general/frontend_enabled';
     const CFG_USERSNAP_BACKEND_ENABLED = 'clivewalkden_usersnap/general/backend_enabled';
     const CFG_USERSNAP_ENVIRONMENT = 'clivewalkden_usersnap/general/environment';
+    const CFG_USERSNAP_WHITELIST_ENABLED = 'clivewalkden_usersnap/ip_whitelist/enabled';
+    const CFG_USERSNAP_WHITELIST_WHITELIST = 'clivewalkden_usersnap/ip_whitelist/whitelist';
 
     /**
      * @var \Magento\Framework\Module\ModuleListInterface
@@ -91,6 +95,22 @@ class Data extends AbstractHelper
     public function getEnvironment()
     {
         return $this->scopeConfig->getValue(self::CFG_USERSNAP_ENVIRONMENT, ScopeInterface::SCOPE_STORE);
+    }
+
+    /**
+     * @return bool
+     */
+    public function getWhitelistEnabled(): bool
+    {
+        return $this->scopeConfig->isSetFlag(self::CFG_USERSNAP_WHITELIST_ENABLED, ScopeInterface::SCOPE_STORE);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWhitelist()
+    {
+        return $this->scopeConfig->getValue(self::CFG_USERSNAP_WHITELIST_WHITELIST, ScopeInterface::SCOPE_STORE);
     }
 
     /**
