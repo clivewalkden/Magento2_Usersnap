@@ -106,11 +106,11 @@ class Data extends AbstractHelper
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getWhitelist()
+    public function getWhitelist(): string
     {
-        return $this->scopeConfig->getValue(self::CFG_USERSNAP_WHITELIST_WHITELIST, ScopeInterface::SCOPE_STORE);
+        return ($this->scopeConfig->getValue(self::CFG_USERSNAP_WHITELIST_WHITELIST, ScopeInterface::SCOPE_STORE)) ?? '';
     }
 
     /**

@@ -21,8 +21,10 @@ declare(strict_types=1);
 namespace CliveWalkden\Usersnap\Block\System\Config;
 
 use Magento\Backend\Block\Template\Context;
+use Magento\Backend\Block\Widget\Button;
 use Magento\Config\Block\System\Config\Form\Field;
 use Magento\Framework\Data\Form\Element\AbstractElement;
+use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\HTTP\PhpEnvironment\RemoteAddress;
 use Magento\Framework\View\Helper\Js as JsHelper;
 
@@ -60,12 +62,26 @@ class IpButton extends Field
      */
     public function render(AbstractElement $element): string
     {
-        $element->addClass('cw-ipbutton');
-        $element->setValue('Add IP Address');
-
         $html = parent::render($element);
 
         return $html . $this->_getAdditionalJs($element);
+    }
+
+    /**
+     * @param AbstractElement $element
+     * @return string
+     * @throws LocalizedException
+     */
+    public function _getElementHtml(AbstractElement $element): string
+    {
+        $button = $this->getLayout()->createBlock(Button::class);
+
+        $button->setData([
+            'id' => $element->getHtmlId(),
+            'label' => 'Add IP Address'
+        ]);
+
+        return $button->toHtml();
     }
 
     /**
@@ -104,7 +120,7 @@ class IpButton extends Field
                             whitelist.val(currentIp);
                         } else {
                             var existing = whitelist.val();
-                            whitelist.val(existing + "\n" + currentIp);
+                            whitelist.val(existing + "\\n" + currentIp);
                         }
                     });
                 });
