@@ -16,6 +16,8 @@
  *
  */
 
+declare(strict_types=1);
+
 namespace CliveWalkden\Usersnap\Block\System\Config\Form\Fieldset;
 
 use CliveWalkden\Usersnap\Helper\Data;
@@ -24,12 +26,13 @@ use Magento\Backend\Block\Template\Context;
 use Magento\Framework\App\ProductMetadataInterface;
 use Magento\Framework\Data\Form\Element\AbstractElement;
 use Magento\Framework\Data\Form\Element\Renderer\RendererInterface;
+use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Module\ModuleList\Loader;
 
 class Hint extends Template implements RendererInterface
 {
     /**
-     * @var \CliveWalkden\Usersnap\Helper\Data
+     * @var Data
      */
     protected $helper;
 
@@ -39,32 +42,31 @@ class Hint extends Template implements RendererInterface
     protected $_template = 'CliveWalkden_Usersnap::system/config/fieldset/hint.phtml';
 
     /**
-     * @var \Magento\Framework\App\ProductMetadataInterface
+     * @var ProductMetadataInterface
      */
     protected $metaData;
 
     /**
-     * @var \Magento\Framework\Module\ModuleList\Loader
+     * @var Loader
      */
     protected $loader;
 
     /**
      * Hint constructor.
      *
-     * @param \Magento\Backend\Block\Template\Context         $context
-     * @param \Magento\Framework\App\ProductMetadataInterface $productMetaData
-     * @param \Magento\Framework\Module\ModuleList\Loader     $loader
-     * @param \CliveWalkden\Usersnap\Helper\Data              $helper
-     * @param array                                           $data
+     * @param Context $context
+     * @param ProductMetadataInterface $productMetaData
+     * @param Loader $loader
+     * @param Data $helper
+     * @param array $data
      */
     public function __construct(
-        Context $context,
+        Context                  $context,
         ProductMetadataInterface $productMetaData,
-        Loader $loader,
-        Data $helper,
-        array $data = []
+        Loader                   $loader,
+        Data                     $helper,
+        array                    $data = []
     ) {
-
         parent::__construct($context, $data);
         $this->metaData = $productMetaData;
         $this->loader = $loader;
@@ -72,7 +74,7 @@ class Hint extends Template implements RendererInterface
     }
 
     /**
-     * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
+     * @param AbstractElement $element
      *
      * @return mixed
      */
@@ -83,8 +85,9 @@ class Hint extends Template implements RendererInterface
 
     /**
      * @return string
+     * @throws LocalizedException
      */
-    public function getPxParams()
+    public function getPxParams(): string
     {
         $modules = $this->loader->load();
         $v = $this->helper->getExtensionVersion();

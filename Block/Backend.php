@@ -16,13 +16,18 @@
  *
  */
 
+declare(strict_types=1);
+
 namespace CliveWalkden\Usersnap\Block;
 
 class Backend extends Display
 {
-    public function _toHtml()
+    /**
+     * @return string
+     */
+    public function _toHtml(): string
     {
-        if ($this->snapHelper->getEnabled() && $this->snapHelper->getBackendEnabled()) {
+        if ($this->snapHelper->getBackendEnabled()) {
             return parent::_toHtml();
         }
 
