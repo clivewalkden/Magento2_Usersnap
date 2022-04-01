@@ -14,6 +14,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [v1.2.0]
+### Added
+- IP Whitelisting capabilities to the module.
+
+
 ## [v1.1.0]
 ### Added
 - Frontend and Backend options to turn the widget on / off in those areas 

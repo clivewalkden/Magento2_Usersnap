@@ -28,6 +28,10 @@
                 <environment></environment>
                 -->
             </general>
+            <ip_whitelist>
+                <enabled>0</enabled>
+                <whitelist></whitelist>
+            </ip_whitelist>
         </clivewalkden_usersnap>
     </default>
 </config>

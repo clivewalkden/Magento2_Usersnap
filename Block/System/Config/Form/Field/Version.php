@@ -16,6 +16,8 @@
  *
  */
 
+declare(strict_types=1);
+
 namespace CliveWalkden\Usersnap\Block\System\Config\Form\Field;
 
 use CliveWalkden\Usersnap\Helper\Data;
@@ -28,13 +30,13 @@ class Version extends Field
     const EXTENSION_URL = 'https://github.com/clivewalkden/Magento2_Usersnap';
 
     /**
-     * @var \CliveWalkden\Usersnap\Helper\Data $helper
+     * @var Data $helper
      */
     protected $helper;
 
     /**
-     * @param   \Magento\Backend\Block\Template\Context $context
-     * @param   \CliveWalkden\Usersnap\Helper\Data      $helper
+     * @param Context $context
+     * @param Data $helper
      */
     public function __construct(
         Context $context,
@@ -49,7 +51,7 @@ class Version extends Field
      *
      * @return string
      */
-    protected function _getElementHtml(AbstractElement $element)
+    protected function _getElementHtml(AbstractElement $element): string
     {
         $extensionVersion = $this->helper->getExtensionVersion();
         $extensionTitle = 'Clive Walkden - Usersnap';

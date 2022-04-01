@@ -48,15 +48,46 @@
                     </comment>
                 </field>
 
-                <field id="frontend_enabled" translate="label" type="select" sortOrder="40" showInDefault="1" showInStore="1" showInWebsite="1">
+                <field id="frontend_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInStore="1" showInWebsite="1">
                     <label>Display on Frontend?</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
 
-                <field id="backend_enabled" translate="label" type="select" sortOrder="40" showInDefault="1" showInStore="1" showInWebsite="1">
+                <field id="backend_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInStore="1" showInWebsite="1">
                     <label>Display on Backend?</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
+            </group>
+
+            <group id="ip_whitelist" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>IP Whitelist</label>
+                <depends>
+                    <field id="*/general/enabled">1</field>
+                </depends>
+
+                <field id="enabled" type="select" translate="label" sortOrder="10" showInDefault="1" showInStore="1"
+                       showInWebsite="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="add_ip" translate="label comment" type="button" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Allow output for current IP</label>
+                    <frontend_model>CliveWalkden\Usersnap\Block\System\Config\IpButton</frontend_model>
+                    <comment>Current IP will be added to whitelist</comment>
+                    <depends>
+                        <field id="*/*/enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="whitelist" translate="label comment" type="textarea" sortOrder="30" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>IP Whitelist</label>
+                    <comment>1 IP address per line</comment>
+                    <depends>
+                        <field id="*/*/enabled">1</field>
+                    </depends>
+                </field>
+
                 <!--
                 <field id="environment" translate="label tooltip" type="text" sortOrder="60" showInDefault="1"
                        showInStore="1" showInWebsite="1">

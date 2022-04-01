@@ -16,22 +16,38 @@
  *
  */
 
+declare(strict_types=1);
+
 namespace CliveWalkden\Usersnap\Block;
 
 use CliveWalkden\Usersnap\Helper\Data;
+use CliveWalkden\Usersnap\Service\IpCheckerService;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 
 class Display extends Template
 {
     /**
-     * @var \CliveWalkden\Usersnap\Helper\Data
+     * @var Data
      */
     protected $snapHelper;
 
-    public function __construct(Context $context, Data $snapHelper, array $data = [])
+    /**
+     * @var IpCheckerService
+     */
+    protected $ipChecker;
+
+    /**
+     * @param Context $context
+     * @param Data $snapHelper
+     * @param IpCheckerService $ipCheckerService
+     * @param array $data
+     */
+    public function __construct(Context $context, Data $snapHelper, IpCheckerService $ipCheckerService, array $data = [])
     {
         $this->snapHelper = $snapHelper;
+        $this->ipChecker = $ipCheckerService;
+
         parent::__construct($context, $data);
     }
 
@@ -60,12 +76,11 @@ class Display extends Template
      *
      * @return string
      */
-    public function _toHtml()
+    public function _toHtml(): string
     {
-        if (!$this->snapHelper->getEnabled()) {
-            return '';
-        }
+        $enabled = $this->snapHelper->getEnabled();
+        $ipAllowed = $this->ipChecker->checkAllowed();
 
-        return parent::_toHtml();
+        return ($enabled && $ipAllowed) ? parent::_toHtml() : '';
     }
 }
