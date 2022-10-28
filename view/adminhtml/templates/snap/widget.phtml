@@ -23,7 +23,7 @@
 <!-- BEGIN USERSNAP CODE {literal} -->
 <script>
     window.onUsersnapCXLoad = function(api) {
-        api.init(<?= $block->getConfig()?>);
+        api.init(<?= $block->getJsConfig()?>);
         window.Usersnap = api;
         api.show('<?= $block->getProjectApiKey()?>')
     }

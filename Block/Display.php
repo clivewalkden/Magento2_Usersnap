@@ -88,13 +88,15 @@ class Display extends Template
         return $this->jsConfig = [
             'custom' => [
                 'capturedBy' => 'Magento 2 Usersnap Module: ' . $this->snapHelper->getExtensionVersion(),
+                'environment' => $this->snapHelper->getEnvironment()
             ]
         ];
     }
 
     public function getJsConfig(): string
     {
-        return json_encode($this->jsConfig);
+        $this->prepareConfig();
+        return json_encode($this->jsConfig, JSON_FORCE_OBJECT);
     }
 
     /**
