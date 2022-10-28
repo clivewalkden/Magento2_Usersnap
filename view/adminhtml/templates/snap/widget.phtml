@@ -23,11 +23,11 @@
 <!-- BEGIN USERSNAP CODE {literal} -->
 <script>
     window.onUsersnapCXLoad = function(api) {
-        api.init(<?= $escaper->escapeJs($block->getConfig())?>);
+        api.init('<?= $block->getConfig()?>');
     }
     var script = document.createElement('script');
     script.defer = 1;
-    script.src = 'https://widget.usersnap.com/global/load/<?= $escaper->escapeJs($block->getWidgetId()); ?>?onload=onUsersnapCXLoad';
+    script.src = 'https://widget.usersnap.com/global/load/<?= $escaper->escapeUrl($block->getWidgetId()); ?>?onload=onUsersnapCXLoad';
     document.getElementsByTagName('head')[0].appendChild(script);
 </script>
 <!-- {/literal} END USERSNAP CODE -->

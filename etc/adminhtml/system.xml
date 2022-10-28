@@ -44,7 +44,7 @@
                        showInStore="1" showInWebsite="1">
                     <label>Widget ID</label>
                     <comment>
-                        <![CDATA[Enter the Widget ID from your script (including the trailing .js).]]>
+                        <![CDATA[Enter the Global API Key from the Usersnap control panel.]]>
                     </comment>
                 </field>
 
