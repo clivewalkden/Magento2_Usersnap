@@ -42,10 +42,15 @@
 
                 <field id="widget_id" translate="label comment" type="text" sortOrder="30" showInDefault="1"
                        showInStore="1" showInWebsite="1">
-                    <label>Widget ID</label>
+                    <label>Global API Key</label>
                     <comment>
                         <![CDATA[Enter the Global API Key from the Usersnap control panel.]]>
                     </comment>
+                </field>
+
+                <field id="project_api_key" translate="label comment" type="text" sortOrder="30" showInDefault="1"
+                       showInStore="1" showInWebsite="1">
+                    <label>Project API Key</label>
                 </field>
 
                 <field id="frontend_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInStore="1" showInWebsite="1">

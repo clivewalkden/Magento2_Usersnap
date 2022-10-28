@@ -37,6 +37,8 @@ class Display extends Template
      */
     protected $ipChecker;
 
+    protected $jsConfig = [];
+
     /**
      * @param Context $context
      * @param Data $snapHelper
@@ -62,6 +64,16 @@ class Display extends Template
     }
 
     /**
+     * Get the Project API Key
+     *
+     * @return mixed
+     */
+    public function getProjectApiKey(): ?string
+    {
+        return $this->snapHelper->getProjectApiKey();
+    }
+
+    /**
      * Get the Widget Environment
      *
      * @return mixed
@@ -69,6 +81,20 @@ class Display extends Template
     public function getEnvironment()
     {
         return $this->snapHelper->getEnvironment();
+    }
+
+    public function prepareConfig(): array
+    {
+        return $this->jsConfig = [
+            'custom' => [
+                'capturedBy' => 'Magento 2 Usersnap Module: ' . $this->snapHelper->getExtensionVersion(),
+            ]
+        ];
+    }
+
+    public function getJsConfig(): string
+    {
+        return json_encode($this->jsConfig);
     }
 
     /**

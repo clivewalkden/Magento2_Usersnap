@@ -29,6 +29,7 @@ class Data extends AbstractHelper
 {
     const CFG_USERSNAP_ENABLED = 'clivewalkden_usersnap/general/enabled';
     const CFG_USERSNAP_WIDGET_ID = 'clivewalkden_usersnap/general/widget_id';
+    const CFG_USERSNAP_PROJECT_API_KEY = 'cliwalkden_usersnap/general/project_api_key';
     const CFG_USERSNAP_FRONTEND_ENABLED = 'clivewalkden_usersnap/general/frontend_enabled';
     const CFG_USERSNAP_BACKEND_ENABLED = 'clivewalkden_usersnap/general/backend_enabled';
     const CFG_USERSNAP_ENVIRONMENT = 'clivewalkden_usersnap/general/environment';
@@ -52,7 +53,7 @@ class Data extends AbstractHelper
     /**
      * @return bool
      */
-    public function getEnabled()
+    public function getEnabled(): bool
     {
         return $this->scopeConfig->isSetFlag(self::CFG_USERSNAP_ENABLED, ScopeInterface::SCOPE_STORE);
     }
@@ -63,6 +64,11 @@ class Data extends AbstractHelper
     public function getWidgetId()
     {
         return $this->validateWidgetID();
+    }
+
+    public function getProjectApiKey()
+    {
+        return $this->scopeConfig->getValue(self::CFG_USERSNAP_PROJECT_API_KEY, ScopeInterface::SCOPE_STORE);
     }
 
     /**

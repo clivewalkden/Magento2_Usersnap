@@ -40,17 +40,18 @@ class Backend extends Display
         return $this->authSession->getUser();
     }
 
-    public function getConfig(): string
+    public function prepareConfig(): array
     {
-        $config = [];
         if ($this->getCurrentUser()) {
-            $config = [
-                'userId' => $this->getCurrentUser()->getEntityId(),
-                'email' => $this->getCurrentUser()->getEmail()
-            ];
+            $this->jsConfig = array_merge($this->jsConfig, [
+                'user' => [
+                    'userId' => $this->getCurrentUser()->getId(),
+                    'email' => $this->getCurrentUser()->getEmail(),
+                ]
+            ]);
         }
 
-        return json_encode($config);
+        return $this->jsConfig;
     }
 
     /**

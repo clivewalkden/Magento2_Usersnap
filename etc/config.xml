@@ -22,6 +22,7 @@
             <general>
                 <enabled>0</enabled>
                 <widget_id></widget_id>
+                <project_api_key></project_api_key>
                 <frontend_enabled>0</frontend_enabled>
                 <backend_enabled>1</backend_enabled>
                 <!--
