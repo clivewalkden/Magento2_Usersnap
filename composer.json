@@ -12,7 +12,8 @@
   ],
   "license": "OSL-3.0",
   "require": {
-    "magento/framework": ">=102.0.0"
+    "magento/framework": ">=102.0.0",
+    "ext-json": "*"
   },
   "autoload": {
     "files": [

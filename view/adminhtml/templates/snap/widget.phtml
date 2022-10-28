@@ -18,10 +18,16 @@
 
 // @codingStandardsIgnoreFile
 /* @var $block \CliveWalkden\Usersnap\Block\Backend */
+/* @var $escaper \Magento\Framework\Escaper */
 ?>
 <!-- BEGIN USERSNAP CODE {literal} -->
-<script type="text/javascript">
-    (function() { var s = document.createElement("script"); s.type = "text/javascript"; s.async = true; s.src = '//api.usersnap.com/load/<?= $block->getWidgetId(); ?>';
-        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); })();
+<script>
+    window.onUsersnapCXLoad = function(api) {
+        api.init(<?= $escaper->escapeJs($block->getConfig())?>);
+    }
+    var script = document.createElement('script');
+    script.defer = 1;
+    script.src = 'https://widget.usersnap.com/global/load/<?= $escaper->escapeJs($block->getWidgetId()); ?>?onload=onUsersnapCXLoad';
+    document.getElementsByTagName('head')[0].appendChild(script);
 </script>
 <!-- {/literal} END USERSNAP CODE -->
