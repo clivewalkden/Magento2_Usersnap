@@ -2,18 +2,17 @@
 /*
  * Clive Walkden
  *
- *  NOTICE OF LICENSE
+ * NOTICE OF LICENSE
  *
- *  This source file is subject to the Open Software License (OSL 3.0)
- *  that is bundled with this package in the file LICENSE.
- *  It is also available through the world-wide-web at this URL:
- *  http://opensource.org/licenses/osl-3.0.php
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
  *
- *  @category    Clive Walkden
- *  @package     CliveWalkden_Usersnap
- *  @copyright   Copyright (c) Clive Walkden (https://clivewalkden.co.uk)
- *  @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- *
+ * @category    Clive Walkden
+ * @package     CliveWalkden_Usersnap
+ * @copyright   Copyright (c) Clive Walkden (https://clivewalkden.co.uk)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
 declare(strict_types=1);
@@ -30,7 +29,7 @@ use Magento\Framework\View\Helper\Js as JsHelper;
 
 class IpButton extends Field
 {
-    const WHITELIST_DOM_ID = 'clivewalkden_usersnap_ip_whitelist_whitelist';
+    protected const WHITELIST_DOM_ID = 'clivewalkden_usersnap_ip_whitelist_whitelist';
 
     /**
      * @var JsHelper
@@ -57,6 +56,8 @@ class IpButton extends Field
     }
 
     /**
+     * @inheritdoc
+     *
      * @param AbstractElement $element
      * @return string
      */
@@ -68,6 +69,8 @@ class IpButton extends Field
     }
 
     /**
+     * @inheritdoc
+     *
      * @param AbstractElement $element
      * @return string
      * @throws LocalizedException
@@ -85,6 +88,8 @@ class IpButton extends Field
     }
 
     /**
+     * DOM element of whitelist
+     *
      * @return string
      */
     protected function getWhitelistDOMId(): string
@@ -93,6 +98,8 @@ class IpButton extends Field
     }
 
     /**
+     * Return the current IP address of the user
+     *
      * @return false|string
      */
     public function getCurrentIpAddress()
@@ -101,6 +108,8 @@ class IpButton extends Field
     }
 
     /**
+     * Build the button for inclusion
+     *
      * @param AbstractElement $element
      * @return string
      */

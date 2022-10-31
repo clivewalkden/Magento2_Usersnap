@@ -2,18 +2,17 @@
 <!--
   ~ Clive Walkden
   ~
-  ~  NOTICE OF LICENSE
+  ~ NOTICE OF LICENSE
   ~
-  ~  This source file is subject to the Open Software License (OSL 3.0)
-  ~  that is bundled with this package in the file LICENSE.
-  ~  It is also available through the world-wide-web at this URL:
-  ~  http://opensource.org/licenses/osl-3.0.php
+  ~ This source file is subject to the Open Software License (OSL 3.0)
+  ~ that is bundled with this package in the file LICENSE.
+  ~ It is also available through the world-wide-web at this URL:
+  ~ http://opensource.org/licenses/osl-3.0.php
   ~
-  ~  @category    Clive Walkden
-  ~  @package     CliveWalkden_Usersnap
-  ~  @copyright   Copyright (c) Clive Walkden (https://clivewalkden.co.uk)
-  ~  @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
-  ~
+  ~ @category    Clive Walkden
+  ~ @package     CliveWalkden_Usersnap
+  ~ @copyright   Copyright (c) Clive Walkden (https://clivewalkden.co.uk)
+  ~ @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
   -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
@@ -21,14 +20,22 @@
         <clivewalkden_usersnap>
             <general>
                 <enabled>0</enabled>
-                <widget_id></widget_id>
+                <global_api_key></global_api_key>
                 <project_api_key></project_api_key>
-                <frontend_enabled>0</frontend_enabled>
-                <backend_enabled>1</backend_enabled>
-                <!--
-                <environment></environment>
-                -->
+                <deactivate_googlefonts></deactivate_googlefonts>
             </general>
+            <frontend>
+                <enabled>0</enabled>
+                <deactivate_tracking>0</deactivate_tracking>
+                <deactivate_localstorage>0</deactivate_localstorage>
+                <capture_user_data>0</capture_user_data>
+            </frontend>
+            <admin>
+                <enabled>0</enabled>
+                <deactivate_tracking>0</deactivate_tracking>
+                <deactivate_localstorage>0</deactivate_localstorage>
+                <capture_user_data>0</capture_user_data>
+            </admin>
             <ip_whitelist>
                 <enabled>0</enabled>
                 <whitelist></whitelist>

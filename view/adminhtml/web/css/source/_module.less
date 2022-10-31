@@ -1,4 +1,3 @@
-<?php
 /*
  * Clive Walkden
  *
@@ -15,8 +14,21 @@
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-\Magento\Framework\Component\ComponentRegistrar::register(
-    \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'CliveWalkden_Usersnap',
-    __DIR__
-);
+@import 'module/variables/_variables.less';
+
+//  System Configuration
+#cw-usersnap-container {
+    .lib-clearfix();
+    display: flex;
+    align-items: center;
+    background: @panel__background-color;
+    border: 1px solid @border-color__base;
+    margin: 0 0  @indent__base;
+    img {
+        float: left;
+        padding-right: @indent__base;
+    }
+    strong {
+        color: @usersnap-primary;
+    }
+}
