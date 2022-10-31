@@ -2,26 +2,36 @@
 /*
  * Clive Walkden
  *
- *  NOTICE OF LICENSE
+ * NOTICE OF LICENSE
  *
- *  This source file is subject to the Open Software License (OSL 3.0)
- *  that is bundled with this package in the file LICENSE.
- *  It is also available through the world-wide-web at this URL:
- *  http://opensource.org/licenses/osl-3.0.php
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
  *
- *  @category    Clive Walkden
- *  @package     CliveWalkden_Usersnap
- *  @copyright   Copyright (c) Clive Walkden (https://clivewalkden.co.uk)
- *  @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- *
+ * @category    Clive Walkden
+ * @package     CliveWalkden_Usersnap
+ * @copyright   Copyright (c) Clive Walkden (https://clivewalkden.co.uk)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
+/** @var $block CliveWalkden\Usersnap\Block\Backend */
+/** @var $escaper \Magento\Framework\Escaper */
 ?>
-<div style="background:#EAF0EE; border:1px solid #CCCCCC; margin-bottom:10px; padding:11px 0 0 10px;">
-    <h4>
-        <div style="padding-left: 30px;">
-            <p>
-                <strong style="color:#EA7601;"><?php echo __('Usersnap v') ?><?php echo $this->getVersion() ?><?php echo __(' by') ?></strong>
-                <a target="_blank" href="https://clivewalkden.co.uk"><strong>Clive Walkden</strong></a></p>
-        </div>
-    </h4>
+<div id="cw-usersnap-container">
+    <img src='<?=$escaper->escapeUrl($block->getViewFileUrl('CliveWalkden_Usersnap::images/UpdatedLogo.png')) ?>'
+         alt="Usersnap Logo" width="280">
+    <div>
+        <p>
+            <strong>
+                <?=$escaper->escapeHtml(__('Magento 2 Usersnap Module')) ?>
+                <?= $escaper->escapeHtml(__('v')) ?><?= $escaper->escapeHtml($block->getVersion()) ?>
+                <?= $escaper->escapeHtml(__('by')) ?>
+            </strong>
+            <a target="_blank" href="https://clivewalkden.co.uk"><strong>Clive Walkden</strong></a>
+        </p>
+        <p>
+            <?=$escaper->escapeHtml(__('Documentation:'))?>
+            <a href="<?=$escaper->escapeUrl('https://github.com/clivewalkden/Magento2_Usersnap/blob/master/README.md') // phpcs:ignore?>" target="_blank">external link (opens in a new window)</a>
+        </p>
+    </div>
 </div>
