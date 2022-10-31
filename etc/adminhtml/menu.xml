@@ -15,6 +15,16 @@
   ~ @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
   -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="CliveWalkden_Usersnap" setup_version="2.0.0"/>
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add module="CliveWalkden_Usersnap"
+             title="Usersnap"
+             id="CliveWalkden_Usersnap::config"
+             resource="CliveWalkden_Usersnap::config"
+             parent="Magento_Backend::system_other_settings"
+             translate="title"
+             action="admin/system_config/edit/section/clivewalkden_usersnap"
+             dependsOnModule="CliveWalkden_Usersnap"
+             sortOrder="40"/>
+    </menu>
 </config>

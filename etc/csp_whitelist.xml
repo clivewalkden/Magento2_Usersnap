@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Clive Walkden
+  ~
+  ~ NOTICE OF LICENSE
+  ~
+  ~ This source file is subject to the Open Software License (OSL 3.0)
+  ~ that is bundled with this package in the file LICENSE.
+  ~ It is also available through the world-wide-web at this URL:
+  ~ http://opensource.org/licenses/osl-3.0.php
+  ~
+  ~ @category    Clive Walkden
+  ~ @package     CliveWalkden_Usersnap
+  ~ @copyright   Copyright (c) Clive Walkden (https://clivewalkden.co.uk)
+  ~ @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+  -->
+
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp/etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="script-src">
+            <values>
+                <value id="cw-usersnap-widget" type="host">widget.usersnap.com</value>
+                <value id="cw-usersnap-resources" type="host">resources.usersnap.com</value>
+            </values>
+        </policy>
+        <policy id="style-src">
+            <values>
+                <!--GoogleFonts-->
+                <value id="cw-usersnap-googlefonts" type="host">https://fonts.googleapis.com</value>
+            </values>
+        </policy>
+        <policy id="font-src">
+            <values>
+                <value id="cw-usersnao-googlefonts" type="host">https://fonts.gstatic.com</value>
+            </values>
+        </policy>
+        <policy id="connect-src">
+            <values>
+                <value id="cw-usersnap-widget" type="host">widget.usersnap.com</value>
+
+                <value id="cw-usersnap-aws" type="host">*.amazonaws.com</value>
+            </values>
+        </policy>
+        <policy id="img-src">
+            <values>
+                <value id="cw-usersnap-gravatar" type="host">www.gravatar.com</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

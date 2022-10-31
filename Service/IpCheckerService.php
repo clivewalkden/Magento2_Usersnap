@@ -2,25 +2,24 @@
 /*
  * Clive Walkden
  *
- *  NOTICE OF LICENSE
+ * NOTICE OF LICENSE
  *
- *  This source file is subject to the Open Software License (OSL 3.0)
- *  that is bundled with this package in the file LICENSE.
- *  It is also available through the world-wide-web at this URL:
- *  http://opensource.org/licenses/osl-3.0.php
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
  *
- *  @category    Clive Walkden
- *  @package     CliveWalkden_Usersnap
- *  @copyright   Copyright (c) Clive Walkden (https://clivewalkden.co.uk)
- *  @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- *
+ * @category    Clive Walkden
+ * @package     CliveWalkden_Usersnap
+ * @copyright   Copyright (c) Clive Walkden (https://clivewalkden.co.uk)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
 declare(strict_types=1);
 
 namespace CliveWalkden\Usersnap\Service;
 
-use CliveWalkden\Usersnap\Helper\Data;
+use CliveWalkden\Usersnap\Model\ConfigProvider;
 use Magento\Framework\HTTP\PhpEnvironment\RemoteAddress;
 
 class IpCheckerService
@@ -31,9 +30,9 @@ class IpCheckerService
     protected $whitelist;
 
     /**
-     * @var Data
+     * @var ConfigProvider
      */
-    protected $helper;
+    protected $configProvider;
 
     /**
      * @var string
@@ -41,14 +40,14 @@ class IpCheckerService
     protected $ipAddress;
 
     /**
-     * @param Data $helper
+     * @param ConfigProvider $configProvider
      * @param RemoteAddress $remoteAddress
      */
-    public function __construct(Data $helper, RemoteAddress $remoteAddress)
+    public function __construct(ConfigProvider $configProvider, RemoteAddress $remoteAddress)
     {
-        $this->helper = $helper;
+        $this->configProvider = $configProvider;
 
-        $whitelist = $this->helper->getWhitelist();
+        $whitelist = $this->configProvider->getWhitelist();
         $whitelist = explode("\n", $whitelist);
         $this->whitelist = $whitelist;
 
@@ -62,7 +61,7 @@ class IpCheckerService
      */
     public function checkAllowed(): bool
     {
-        if (!(bool)$this->helper->getWhitelistEnabled()) {
+        if (!(bool)$this->configProvider->getWhitelistEnabled()) {
             return true;
         }
 
@@ -95,6 +94,7 @@ class IpCheckerService
 
     /**
      * Check if IP has a match to a whitelisted IP with netmask
+     *
      * Credits to Paul Gregg (https://pgregg.com/projects/php/ip_in_range/ip_in_range.phps)
      *
      * @return bool
@@ -147,6 +147,7 @@ class IpCheckerService
 
     /**
      * Check if IP has a match to a whitelisted IP with netmask
+     *
      * Credits to Paul Gregg (https://pgregg.com/projects/php/ip_in_range/ip_in_range.phps)
      *
      * @return bool

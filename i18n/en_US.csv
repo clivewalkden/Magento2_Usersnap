@@ -1,12 +1,23 @@
-"Usersnap v","Usersnap v"
-" by"," by"
-"CW Extensions","CW Extensions"
+"Magento 2 Usersnap Module","Magento 2 Usersnap Module"
+v,v
+by,by
+Documentation:,Documentation:
 Usersnap,Usersnap
+"CW Extensions","CW Extensions"
 General,General
 Enabled,Enabled
-"Widget ID","Widget ID"
-"Enter the Widget ID from your script (including the trailing .js).","Enter the Widget ID from your script (including the trailing .js)."
+"Global API Key","Global API Key"
+"Enter the Global API Key from the Usersnap control panel.","Enter the Global API Key from the Usersnap control panel."
+"Project API Key","Project API Key"
+"Deactivate GoogleFonts?","Deactivate GoogleFonts?"
+"Frontend Configuration","Frontend Configuration"
 "Display on Frontend?","Display on Frontend?"
+"Capture User Data?","Capture User Data?"
+"Deactivate Tracking?","Deactivate Tracking?"
+"Deactivate localStorage?","Deactivate localStorage?"
+"Backend Configuration","Backend Configuration"
 "Display on Backend?","Display on Backend?"
-Environment,Environment
-"Set the environment to be saved with the feedback","Set the environment to be saved with the feedback"
+"IP Whitelist","IP Whitelist"
+"Allow output for current IP","Allow output for current IP"
+"Current IP will be added to whitelist","Current IP will be added to whitelist"
+"1 IP address per line","1 IP address per line"

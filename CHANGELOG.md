@@ -14,6 +14,28 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+[v2.0.0]
+### Added
+- New API controls for the widget to pass logged in customer data to usersnap for frontend and backend
+- GeoLocation tracking deactivation option
+- LocalStorage usage deactivation option
+- CSP Whitelist for Usersnap resources
+- Module version passed through as custom data
+- Magento Deploy mode passed through as custom data
+
+### Changed
+- Frontend and Backend widgets can be controlled separately
+- Updated plugin to use new widget code and API
+- Support for Magento 2.4
+- Admin styling now uses less instead of inline styles
+
+### Removed
+- Support for Magento 2.0, 2.1 and 2.2
+
+### Security
+- Added missing escaping to output
+
+
 ## [v1.2.0]
 ### Added
 - IP Whitelisting capabilities to the module.
