@@ -22,7 +22,7 @@ namespace CliveWalkden\Usersnap\Block;
 use CliveWalkden\Usersnap\Model\ConfigProvider;
 use CliveWalkden\Usersnap\Service\IpCheckerService;
 use Magento\Customer\Api\GroupRepositoryInterface;
-use Magento\Customer\Model\Session;
+use Magento\Customer\Model\SessionFactory;
 use Magento\Framework\App\State;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
@@ -31,7 +31,7 @@ use Magento\Framework\View\Element\Template\Context;
 class Frontend extends Display
 {
     /**
-     * @var Session
+     * @var SessionFactory
      */
     private $customerSession;
 
@@ -45,7 +45,7 @@ class Frontend extends Display
      * @param ConfigProvider $configProvider
      * @param IpCheckerService $ipCheckerService
      * @param State $state
-     * @param Session $customerSession
+     * @param SessionFactory $customerSession
      * @param GroupRepositoryInterface $groupRepository
      * @param array $data
      */
@@ -54,7 +54,7 @@ class Frontend extends Display
         ConfigProvider $configProvider,
         IpCheckerService $ipCheckerService,
         State $state,
-        Session $customerSession,
+        SessionFactory $customerSession,
         GroupRepositoryInterface $groupRepository,
         array $data = []
     ) {
@@ -101,11 +101,13 @@ class Frontend extends Display
     public function prepareConfig(): array
     {
         $config = parent::prepareConfig();
-        if ($this->customerSession->isLoggedIn() && $this->configProvider->isFrontendCaptureUserData()) {
+        $customerSession = $this->customerSession->create();
+        if ($customerSession->isLoggedIn() && $this->configProvider->isFrontendCaptureUserData()) {
+            $customer = $customerSession->getCustomer();
             $config['user'] = [
-                'userId' => $this->customerSession->getId(),
-                'email' => $this->customerSession->getName(),
-                'userGroup' => $this->getCustomerGroupName($this->customerSession->getCustomerGroupId()),
+                'userId' => $customer->getId(),
+                'email' => $customer->getEmail(),
+                'userGroup' => $this->getCustomerGroupName((int)$customer->getGroupId()),
             ];
         }
 
