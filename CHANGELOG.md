@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * [Security] in case of vulnerabilities.
 
 ## [Unreleased]
+
+[v2.0.0]
 ### Added
 - New API controls for the widget to pass logged in customer data to usersnap for frontend and backend
 - GeoLocation tracking deactivation option
