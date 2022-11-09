@@ -13,3 +13,7 @@ build:
   dependencies:
     before:
       - 'echo "{\"http-basic\":{\"repo.magento.com\":{\"username\":\"${MAGENTO_COMPOSER_USERNAME}\",\"password\":\"${MAGENTO_COMPOSER_PASSWORD}\"}}}" > auth.json'
+
+    environment:
+      php:
+        version: 7.4.33
