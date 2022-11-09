@@ -1,8 +1,10 @@
 # Usersnap Magento 2 Plugin
 
-[![License](https://poser.pugx.org/clivewalkden/magento2-usersnap/license)](./LICENSE)
-[![Total Downloads](https://poser.pugx.org/clivewalkden/magento2-usersnap/downloads)](https://packagist.org/packages/clivewalkden/magento2-usersnap)
-[![Latest Stable Version](https://poser.pugx.org/clivewalkden/magento2-usersnap/v/stable)](https://packagist.org/packages/clivewalkden/magento2-usersnap)
+[![License][ico-license]][link-license]
+[![Total Downloads][ico-downloads]][link-downloads]
+[![Latest Stable Version][ico-version]][link-version]
+[![StyleCI][ico-styleci]][link-styleci]
+[![Quality Score][ico-code-quality]][link-code-quality]
 
 ## Installation
 **Using Composer:**
@@ -13,3 +15,15 @@
 
 
 ## Todo
+
+[ico-license]: https://poser.pugx.org/clivewalkden/magento2-usersnap/license
+[ico-downloads]: https://poser.pugx.org/clivewalkden/magento2-usersnap/downloads
+[ico-version]: https://poser.pugx.org/clivewalkden/magento2-usersnap/v/stable
+[ico-styleci]: https://github.styleci.io/repos/90132910/shield?branch=master
+[ico-code-quality]: https://scrutinizer-ci.com/g/clivewalkden/magento2_usersnap/badges/quality-score.png?style=flat-square
+
+[link-license]: ./LICENSE
+[link-downloads]: https://packagist.org/packages/clivewalkden/magento2-usersnap
+[link-version]: https://packagist.org/packages/clivewalkden/magento2-usersnap
+[link-styleci]: https://github.styleci.io/repos/90132910?branch=master
+[link-code-quality]: https://scrutinizer-ci.com/g/clivewalkden/

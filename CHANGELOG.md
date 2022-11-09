@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * [Security] in case of vulnerabilities.
 
 ## [Unreleased]
+### Changed
+- Customised styleci configuration
+- Added funding option to project
+
 
 [v2.0.0]
 ### Added
