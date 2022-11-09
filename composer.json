@@ -1,26 +1,32 @@
 {
-  "name": "clivewalkden/magento2-usersnap",
-  "description": "A plugin for Magento 2 that outputs the Usersnap javascript code into the website",
-  "type": "magento2-module",
-  "homepage": "https://github.com/clivewalkden/Magento2_Usersnap",
-  "authors": [
-    {
-      "name": "Clive Walkden",
-      "email": "clivewalkden@gmail.com",
-      "homepage": "https://clivewalkden.co.uk"
-    }
-  ],
-  "license": "OSL-3.0",
-  "require": {
-    "magento/framework": ">=103.0.3",
-    "ext-json": "*"
-  },
-  "autoload": {
-    "files": [
-      "registration.php"
+    "name": "clivewalkden/magento2-usersnap",
+    "description": "A plugin for Magento 2 that outputs the Usersnap javascript code into the website",
+    "type": "magento2-module",
+    "homepage": "https://github.com/clivewalkden/Magento2_Usersnap",
+    "authors": [
+        {
+            "name": "Clive Walkden",
+            "email": "clivewalkden@gmail.com",
+            "homepage": "https://clivewalkden.co.uk"
+        }
     ],
-    "psr-4": {
-      "CliveWalkden\\Usersnap\\": ""
-    }
-  }
+    "license": "OSL-3.0",
+    "require": {
+        "magento/framework": ">=103.0.3",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "CliveWalkden\\Usersnap\\": ""
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        }
+    ]
 }
