@@ -15,6 +15,8 @@
 
 
 ## Todo
+- Documentation
+- Unit Tests
 
 [ico-license]: https://poser.pugx.org/clivewalkden/magento2-usersnap/license
 [ico-downloads]: https://poser.pugx.org/clivewalkden/magento2-usersnap/downloads
