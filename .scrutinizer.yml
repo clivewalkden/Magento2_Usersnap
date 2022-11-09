@@ -13,6 +13,7 @@ build:
   dependencies:
     before:
       - 'echo "{\"http-basic\":{\"repo.magento.com\":{\"username\":\"${MAGENTO_COMPOSER_USERNAME}\",\"password\":\"${MAGENTO_COMPOSER_PASSWORD}\"}}}" > auth.json'
+      - 'composer config allow-plugins true'
 
   environment:
     php:
