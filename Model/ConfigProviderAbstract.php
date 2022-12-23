@@ -75,7 +75,7 @@ abstract class ConfigProviderAbstract
         string $path,
         $storeId = null,
         string $scopeType = ScopeConfigInterface::SCOPE_TYPE_DEFAULT
-    ): mixed {
+    ) {
         // Global store value
         if ($storeId === null && $scopeType !== ScopeConfigInterface::SCOPE_TYPE_DEFAULT) {
             return $this->scopeConfig->getValue($this->pathPrefix . $path, $scopeType, $storeId);

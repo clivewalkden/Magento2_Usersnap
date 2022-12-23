@@ -80,7 +80,7 @@ class Display extends Template
     /**
      * Get the Project API Key
      *
-     * @return mixed
+     * @return string|null
      */
     public function getProjectApiKey(): ?string
     {
