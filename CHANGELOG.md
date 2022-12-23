@@ -14,6 +14,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [v2.0.2]
+### Fixed
+- Removed mixed return type for sites using PHP 7.4
+
+
 ## [v2.0.1]
 ### Changed
 - Customised styleci configuration
