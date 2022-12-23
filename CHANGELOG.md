@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * [Security] in case of vulnerabilities.
 
 ## [Unreleased]
+
+## [v2.0.2]
 ### Fixed
 - Removed mixed return type for sites using PHP 7.4
 
