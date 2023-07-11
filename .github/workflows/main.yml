@@ -47,7 +47,7 @@ jobs:
         with:
           process: 'unit-test'
           unit_test_config: 'dev/tests/unit/phpunit.xml.dist'
-          unit_test_subset_path: "../${{ env.SLACK_CHANNEL }}/"
+          unit_test_subset_path: "../${{ env.MODULE }}/"
 
       - name: 'phpstan'
         if: always()
@@ -56,7 +56,7 @@ jobs:
           COMPOSER_AUTH: ${{secrets.COMPOSER_AUTH}}
         with:
           process: 'phpstan'
-          exec_path: "../${{ env.SLACK_CHANNEL }}/"
+          exec_path: "../${{ env.MODULE }}/"
 
       - name: 'Mess Detector'
         if: always()
@@ -65,7 +65,7 @@ jobs:
           COMPOSER_AUTH: ${{secrets.COMPOSER_AUTH}}
         with:
           process: 'mess-detector'
-          md_src_path: "../${{ env.SLACK_CHANNEL }}/"
+          md_src_path: "../${{ env.MODULE }}/"
 
       - name: 'Magento coding standard checking'
         if: always()
@@ -74,6 +74,6 @@ jobs:
           COMPOSER_AUTH: ${{secrets.COMPOSER_AUTH}}
         with:
           process: 'phpcs-test'
-          extension: ${{ env.SLACK_CHANNEL }}
+          extension: ${{ env.MODULE }}
           severity: 10
           standard: 'Magento2'
