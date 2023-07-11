@@ -52,6 +52,8 @@ jobs:
       - name: 'phpstan'
         if: always()
         uses: MAD-I-T/magento-actions@v3.22
+        env:
+          COMPOSER_AUTH: ${{secrets.COMPOSER_AUTH}}
         with:
           process: 'phpstan'
           exec_path: "../${{ env.SLACK_CHANNEL }}/"
@@ -59,6 +61,8 @@ jobs:
       - name: 'Mess Detector'
         if: always()
         uses: MAD-I-T/magento-actions@v3.22
+        env:
+          COMPOSER_AUTH: ${{secrets.COMPOSER_AUTH}}
         with:
           process: 'mess-detector'
           md_src_path: "../${{ env.SLACK_CHANNEL }}/"
@@ -66,6 +70,8 @@ jobs:
       - name: 'Magento coding standard checking'
         if: always()
         uses: MAD-I-T/magento-actions@v3.22
+        env:
+          COMPOSER_AUTH: ${{secrets.COMPOSER_AUTH}}
         with:
           process: 'phpcs-test'
           extension: ${{ env.SLACK_CHANNEL }}
