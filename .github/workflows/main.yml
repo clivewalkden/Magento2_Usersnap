@@ -1,0 +1,73 @@
+name: m2-test
+
+on: [push]
+
+env:
+  MODULE: CliveWalkden_Usersnap
+
+jobs:
+  magento2-build:
+    runs-on: ubuntu-latest
+    container: ubuntu
+    name: 'Magento 2 Build and Test'
+    services:
+      mysql:
+        image: docker://mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: magento
+          MYSQL_DATABASE: magento
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+      elasticsearch:
+        image: docker://elasticsearch:7.1.0
+        ports:
+          - 9200:9200
+        options: -e="discovery.type=single-node" --health-cmd="curl http://localhost:9200/_cluster/health" --health-interval=10s --health-timeout=5s --health-retries=10
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          path: ${{ env.MODULE }}
+
+      - name: 'Install fresh Magento instance'
+        uses: MAD-I-T/magento-actions@v3.22
+        env:
+          COMPOSER_AUTH: ${{secrets.COMPOSER_AUTH}}
+        with:
+          process: 'install-magento'
+          magento_version: '2.4.6'
+          no_push: 1 ## add this arg to not push to the repo ideal for quick test on specific version
+
+      - name: 'Launch Magento 2 Unit Test'
+        if: always()
+        uses: MAD-I-T/magento-actions@v3.22
+        env:
+          COMPOSER_AUTH: ${{secrets.COMPOSER_AUTH}}
+        with:
+          process: 'unit-test'
+          unit_test_config: 'dev/tests/unit/phpunit.xml.dist'
+          unit_test_subset_path: "../${{ env.SLACK_CHANNEL }}/"
+
+      - name: 'phpstan'
+        if: always()
+        uses: MAD-I-T/magento-actions@v3.22
+        with:
+          process: 'phpstan'
+          exec_path: "../${{ env.SLACK_CHANNEL }}/"
+
+      - name: 'Mess Detector'
+        if: always()
+        uses: MAD-I-T/magento-actions@v3.22
+        with:
+          process: 'mess-detector'
+          md_src_path: "../${{ env.SLACK_CHANNEL }}/"
+
+      - name: 'Magento coding standard checking'
+        if: always()
+        uses: MAD-I-T/magento-actions@v3.22
+        with:
+          process: 'phpcs-test'
+          extension: ${{ env.SLACK_CHANNEL }}
+          severity: 10
+          standard: 'Magento2'
