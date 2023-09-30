@@ -188,7 +188,7 @@ class ConfigProvider extends ConfigProviderAbstract
      * @param int|null $storeId
      * @return bool
      */
-    public function getWhitelistEnabled(int $storeId = null): bool
+    public function isWhitelistEnabled(int $storeId = null): bool
     {
         return $this->isSetFlag(self::CFG_USERSNAP_WHITELIST_ENABLED, $storeId);
     }

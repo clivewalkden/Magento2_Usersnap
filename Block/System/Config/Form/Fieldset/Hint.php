@@ -85,32 +85,6 @@ class Hint extends Template implements RendererInterface
     }
 
     /**
-     * Used to confirm usage of the module (not used)
-     *
-     * @return string
-     * @throws LocalizedException
-     */
-    public function getPxParams(): string
-    {
-        $modules = $this->loader->load();
-        $v = $this->configProvider->getExtensionVersion();
-        $extension = "Usersnap;{$v}";
-        $mageEdition = $this->metaData->getEdition();
-        switch ($mageEdition) {
-            case 'Community':
-                $mageEdition = 'CE';
-                break;
-            case 'Enterprise':
-                $mageEdition = 'EE';
-                break;
-        }
-        $mageVersion = $this->metaData->getVersion();
-        $mage = "Magento {$mageEdition};{$mageVersion}";
-        $hash = hash('sha256', $extension . '_' . $mage . '_' . $extension);
-        return "ext=$extension&mage={$mage}&ctrl={$hash}";
-    }
-
-    /**
      * Retrieve the module version number
      *
      * @return string

@@ -61,7 +61,7 @@ class IpCheckerService
      */
     public function checkAllowed(): bool
     {
-        if (!(bool)$this->configProvider->getWhitelistEnabled()) {
+        if (!(bool)$this->configProvider->isWhitelistEnabled()) {
             return true;
         }
 
@@ -117,29 +117,41 @@ class IpCheckerService
                 }
             } else {
                 // $netmask is a CIDR size block
-                // fix the range argument
-                $x = explode('.', $ipRange);
-                while (count($x) < 4) {
-                    $x[] = '0';
-                }
-                list($a, $b, $c, $d) = $x;
-                $ipRange = sprintf(
-                    "%u.%u.%u.%u",
-                    empty($a) ? '0' : $a,
-                    empty($b) ? '0' : $b,
-                    empty($c) ? '0' : $c,
-                    empty($d) ? '0' : $d
-                );
-                $decimalIpRange = ip2long($ipRange);
-                $decimalIpAddress = ip2long($this->ipAddress);
-
-                $decimalWildcard = pow(2, (32 - $netmask)) - 1;
-                $decimalNetmask = ~$decimalWildcard;
-
-                if (($decimalIpAddress & $decimalNetmask) == ($decimalIpRange & $decimalNetmask)) {
-                    return true;
-                }
+                return $this->isIPInCidrBlock($ipRange, $netmask);
             }
+        }
+
+        return false;
+    }
+
+    /**
+     * Check the supplied IP range (Cidr range) contains this ip
+     *
+     * return bool
+     */
+    protected function isIPInCidrBlock($ipRange, $netmask): bool
+    {
+        // fix the range argument
+        $x = explode('.', $ipRange);
+        while (count($x) < 4) {
+            $x[] = '0';
+        }
+        list($a, $b, $c, $d) = $x;
+        $ipRange = sprintf(
+            "%u.%u.%u.%u",
+            empty($a) ? '0' : $a,
+            empty($b) ? '0' : $b,
+            empty($c) ? '0' : $c,
+            empty($d) ? '0' : $d
+        );
+        $decimalIpRange = ip2long($ipRange);
+        $decimalIpAddress = ip2long($this->ipAddress);
+
+        $decimalWildcard = pow(2, (32 - $netmask)) - 1;
+        $decimalNetmask = ~$decimalWildcard;
+
+        if (($decimalIpAddress & $decimalNetmask) == ($decimalIpRange & $decimalNetmask)) {
+            return true;
         }
 
         return false;
